@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText, RadioControl } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,13 +29,15 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( { attributes, setAttributes } ) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Cardiac Risk Calculator – hello from the editor!',
-				'cardiac-risk-calculator'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+			<RichText
+				tagName="h3"
+				value={ attributes.title }
+				onChange={ ( title ) => setAttributes( { title } ) }
+				placeholder={ __( 'Write Cardiac Risk Calculator title…' ) }
+			/>
+		</div>
 	);
 }

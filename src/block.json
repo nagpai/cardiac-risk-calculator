@@ -6,12 +6,28 @@
 	"title": "Cardiac Risk Calculator",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "A Calculator based on the Framingham Risk Score study to selectorcalculate the risk of developing cardiovascular disease in the next 10 years.",
 	"supports": {
-		"html": false
+		"html": true,
+		"color": {},
+		"align": ["wide"],
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
 	},
 	"textdomain": "cardiac-risk-calculator",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"source": "html"
+		},
+
+		"gender": {
+			"type": "string"
+		}
+	}
 }
